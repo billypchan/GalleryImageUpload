@@ -111,6 +111,7 @@
 		ED02920E021503BA2BA82C02 /* GalleryInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryInteractor.swift; sourceTree = "<group>"; };
 		EF864C854B970991D7AC81C9 /* UploadRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UploadRouter.swift; sourceTree = "<group>"; };
 		F36C67755E7EFAAC8F9352E7 /* Pods-GalleryImageUploadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GalleryImageUploadTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GalleryImageUploadTests/Pods-GalleryImageUploadTests.release.xcconfig"; sourceTree = "<group>"; };
+		FEDE3FDC1F4F9112009AFC93 /* GalleryImageUpload-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GalleryImageUpload-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		FEE3B9DB1F4F1C7A004512F3 /* GalleryImageUpload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalleryImageUpload.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE3B9DE1F4F1C7A004512F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEE3B9E31F4F1C7B004512F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -177,7 +178,6 @@
 				212FD82B0FF85A7C2C5D70AF /* UploadModuleInput.swift */,
 				39B06CB74BF8F92BF0B80325 /* UploadPresenter.swift */,
 			);
-			name = Presenter;
 			path = Presenter;
 			sourceTree = "<group>";
 		};
@@ -186,7 +186,6 @@
 			children = (
 				8823CE859C5805BEC9373B75 /* UploadInteractorTests.swift */,
 			);
-			name = Interactor;
 			path = Interactor;
 			sourceTree = "<group>";
 		};
@@ -197,7 +196,6 @@
 				2BAF97992C8500619D773361 /* UploadViewOutput.swift */,
 				36B183A65002C8BC80BB5C19 /* UploadViewController.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -219,7 +217,6 @@
 				94D8D00B7A8CDEF3CFCE3BC4 /* Presenter */,
 				E055F8F20381D8ED07AE1BFF /* Router */,
 			);
-			name = Upload;
 			path = Upload;
 			sourceTree = "<group>";
 		};
@@ -247,7 +244,6 @@
 			children = (
 				51C0FDA7399D935888649927 /* UploadConfiguratorTests.swift */,
 			);
-			name = Configurator;
 			path = Configurator;
 			sourceTree = "<group>";
 		};
@@ -267,7 +263,6 @@
 				4B3936C405BDD53B6F7E8375 /* UploadConfigurator.swift */,
 				6A9A6FE70E8E34B1E129ED1B /* UploadInitializer.swift */,
 			);
-			name = Configurator;
 			path = Configurator;
 			sourceTree = "<group>";
 		};
@@ -289,7 +284,6 @@
 				A556C1C3EE391204DBCB6ED5 /* UploadRouterInput.swift */,
 				EF864C854B970991D7AC81C9 /* UploadRouter.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -308,7 +302,6 @@
 			children = (
 				3432ED79F3875A2946CB30F2 /* UploadViewTests.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -317,7 +310,6 @@
 			children = (
 				DBC2F4AFA88DBFBF1CBFD90C /* UploadPresenterTests.swift */,
 			);
-			name = Presenter;
 			path = Presenter;
 			sourceTree = "<group>";
 		};
@@ -330,7 +322,6 @@
 				8D8645DF8522BCA1D1D03B46 /* Router */,
 				7A0365FFF9E56229CE5213FA /* Configurator */,
 			);
-			name = Upload;
 			path = Upload;
 			sourceTree = "<group>";
 		};
@@ -379,7 +370,6 @@
 				D8EBBDA4FC6C052A7FE94DA0 /* UploadInteractorOutput.swift */,
 				DF3BA6A0E50BB2FBE8678D61 /* UploadInteractor.swift */,
 			);
-			name = Interactor;
 			path = Interactor;
 			sourceTree = "<group>";
 		};
@@ -388,7 +378,6 @@
 			children = (
 				82EC4BD3F8999473FF43B55D /* UploadRouterTests.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -457,6 +446,7 @@
 		FEE3B9DD1F4F1C7A004512F3 /* GalleryImageUpload */ = {
 			isa = PBXGroup;
 			children = (
+				FEDE3FDC1F4F9112009AFC93 /* GalleryImageUpload-Bridging-Header.h */,
 				FEE3B9DE1F4F1C7A004512F3 /* AppDelegate.swift */,
 				FEE3B9E21F4F1C7B004512F3 /* Main.storyboard */,
 				FEE3B9E51F4F1C7B004512F3 /* Assets.xcassets */,
@@ -992,6 +982,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.billchan.GalleryImageUpload;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GalleryImageUpload-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1006,6 +997,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.billchan.GalleryImageUpload;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GalleryImageUpload-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
