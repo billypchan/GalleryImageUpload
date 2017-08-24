@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GalleryViewController: UIViewController, GalleryViewInput {
+class GalleryViewController: UICollectionViewController, GalleryViewInput {
 
     var output: GalleryViewOutput!
 
@@ -21,5 +21,9 @@ class GalleryViewController: UIViewController, GalleryViewInput {
 
     // MARK: GalleryViewInput
     func setupInitialState() {
+    }
+
+    @IBAction func uploadPhotoButtonTapped(_ sender: Any) {
+        
     }
 }

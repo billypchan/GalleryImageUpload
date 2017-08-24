@@ -6,6 +6,32 @@
 //  Copyright © 2017 billchan. All rights reserved.
 //
 
+import UIKit
+
 class GalleryRouter: GalleryRouterInput {
+    func presentSelectPhotoScreen(from view: GalleryViewInput) {
+        ///FIXME:
+        //        let userpostViewController = PostModuleRouter.createPostListModule(forUser: user)
+        //
+        //        if let sourceView = view as? UIViewController {
+        //            sourceView.navigationController?.pushViewController(userpostViewController, animated: true)
+        //        }
+    }
+    
+    class func createGalleryModule() -> UIViewController {
+        let navController = mainStoryboard.instantiateViewController(withIdentifier: "GallerysNavigationController")
+        if let view = navController.childViewControllers.first as? GalleryViewController {
+            let configurator = GalleryModuleConfigurator()
+            
+            configurator.configureModuleForViewInput(viewInput: view)
+            
+            return navController
+        }
+        return UIViewController()
+    }
+
+    static var mainStoryboard: UIStoryboard {
+        return UIStoryboard(name: "Main", bundle: Bundle.main)
+    }
 
 }

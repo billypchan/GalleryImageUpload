@@ -10,6 +10,8 @@ target 'GalleryImageUpload' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
 
+  pod 'TOCropViewController'
+
   pod 'SwiftyBeaver'
 
   target 'GalleryImageUploadTests' do
