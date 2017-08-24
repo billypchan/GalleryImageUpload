@@ -1,0 +1,4 @@
+[attr]utf16 diff merge -crlf
+
+*.png binary
+* utf16
