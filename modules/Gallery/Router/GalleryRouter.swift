@@ -10,12 +10,11 @@ import UIKit
 
 class GalleryRouter: GalleryRouterInput {
     func presentSelectPhotoScreen(from view: GalleryViewInput) {
-        ///FIXME:
-        //        let userpostViewController = PostModuleRouter.createPostListModule(forUser: user)
-        //
-        //        if let sourceView = view as? UIViewController {
-        //            sourceView.navigationController?.pushViewController(userpostViewController, animated: true)
-        //        }
+        let uploadViewController = UploadRouter.createUploadModule()
+        
+        if let sourceView = view as? UIViewController {
+            sourceView.navigationController?.present(uploadViewController, animated: true)
+        }
     }
     
     class func createGalleryModule() -> UIViewController {
@@ -29,9 +28,9 @@ class GalleryRouter: GalleryRouterInput {
         }
         return UIViewController()
     }
-
+    
     static var mainStoryboard: UIStoryboard {
         return UIStoryboard(name: "Main", bundle: Bundle.main)
     }
-
+    
 }

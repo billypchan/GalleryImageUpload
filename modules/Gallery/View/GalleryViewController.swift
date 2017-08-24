@@ -24,6 +24,6 @@ class GalleryViewController: UICollectionViewController, GalleryViewInput {
     }
 
     @IBAction func uploadPhotoButtonTapped(_ sender: Any) {
-        
+        output?.showUploadScreen()
     }
 }

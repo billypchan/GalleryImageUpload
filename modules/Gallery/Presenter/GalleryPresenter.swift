@@ -6,7 +6,7 @@
 //  Copyright © 2017 billchan. All rights reserved.
 //
 
-class GalleryPresenter: GalleryModuleInput, GalleryViewOutput, GalleryInteractorOutput {
+class GalleryPresenter: GalleryModuleInput, GalleryInteractorOutput {
 
     weak var view: GalleryViewInput!
     var interactor: GalleryInteractorInput!
@@ -14,5 +14,11 @@ class GalleryPresenter: GalleryModuleInput, GalleryViewOutput, GalleryInteractor
 
     func viewIsReady() {
 
+    }
+}
+
+extension GalleryPresenter :GalleryViewOutput {
+    func showUploadScreen() {
+        self.router?.presentSelectPhotoScreen(from: view!)
     }
 }

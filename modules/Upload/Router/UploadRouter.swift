@@ -6,6 +6,15 @@
 //  Copyright © 2017 billchan. All rights reserved.
 //
 
-class UploadRouter: UploadRouterInput {
+import UIKit
 
+class UploadRouter: UploadRouterInput {
+    static func createUploadModule() -> UIImagePickerController {
+        let imagePickerController = UIImagePickerController()
+            let configurator = UploadModuleConfigurator()
+            
+            configurator.configureModuleForViewInput(viewInput: imagePickerController)
+            
+            return imagePickerController
+    }
 }

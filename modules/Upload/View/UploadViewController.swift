@@ -8,18 +8,22 @@
 
 import UIKit
 
-class UploadViewController: UIViewController, UploadViewInput {
-
+class UploadViewController: UIImagePickerController, UploadViewInput {
+    
     var output: UploadViewOutput!
-
+    
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         output.viewIsReady()
     }
-
-
+    
+    
     // MARK: UploadViewInput
     func setupInitialState() {
+        self.sourceType = .photoLibrary
+        self.allowsEditing = true
+        ///FIXME:
+//        self.delegate = self
     }
 }
