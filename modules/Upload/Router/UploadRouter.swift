@@ -9,8 +9,8 @@
 import UIKit
 
 class UploadRouter: UploadRouterInput {
-    static func createUploadModule() -> UIImagePickerController {
-        let imagePickerController = UIImagePickerController()
+    static func createUploadModule(parentView :UIViewController!) -> UIImagePickerController {
+        let imagePickerController = UploadViewController()
             let configurator = UploadModuleConfigurator()
             
             configurator.configureModuleForViewInput(viewInput: imagePickerController)

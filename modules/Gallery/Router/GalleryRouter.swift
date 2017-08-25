@@ -9,11 +9,14 @@
 import UIKit
 
 class GalleryRouter: GalleryRouterInput {
+    weak var parentView :UIViewController!
+
     func presentSelectPhotoScreen(from view: GalleryViewInput) {
-        let uploadViewController = UploadRouter.createUploadModule()
         
         if let sourceView = view as? UIViewController {
-            sourceView.navigationController?.present(uploadViewController, animated: true)
+            parentView = sourceView.navigationController
+            let uploadViewController = UploadRouter.createUploadModule(parentView: parentView)
+            parentView.present(uploadViewController, animated: true)
         }
     }
     

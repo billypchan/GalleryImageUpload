@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol GalleryRouterInput {
+protocol GalleryRouterInput {    
     static func createGalleryModule() -> UIViewController
     
     // PRESENTER -> WIREFRAME
