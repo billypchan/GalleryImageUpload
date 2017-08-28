@@ -7,10 +7,8 @@
 //
 
 import UIKit
-import TOCropViewController
 
 class UploadViewController: UIImagePickerController, UploadViewInput, UINavigationControllerDelegate {
-    weak var parentView :UIViewController!
     var output: UploadViewOutput!
     var image: UIImage?
     
@@ -19,7 +17,8 @@ class UploadViewController: UIImagePickerController, UploadViewInput, UINavigati
         super.viewDidLoad()
         output.viewIsReady()
         
-        self.sourceType = .photoLibrary
+//        self.sourceType = .camera ///FIXME: menu for camera, only for device
+        self.sourceType = .photoLibrary ///FIXME: menu for camera
         self.allowsEditing = false
         self.delegate = (self as UIImagePickerControllerDelegate & UINavigationControllerDelegate)
         
@@ -39,17 +38,13 @@ extension UploadViewController: UIImagePickerControllerDelegate {
         }
         
         if let image = imageFromInfo as! UIImage! {
-        
-        let cropController = TOCropViewController(croppingStyle: TOCropViewCroppingStyle.default, image: image)
-        cropController.delegate = self
-        self.image = image
-        //otherwise dismiss, and then present from the main controller
-            parentView = picker.presentingViewController
-        picker.dismiss(animated: true, completion: {() -> Void in
-            self.parentView?.present(cropController, animated: true) { _ in
-                self.parentView = nil
-            }
-        })
+            
+            self.image = image
+            //otherwise dismiss, and then present from the main controller
+            let parentView = picker.presentingViewController
+            picker.dismiss(animated: true, completion: {() -> Void in
+                self.output.cropImage(image: image, parentView: parentView)
+            })
         }
     }
     
@@ -58,6 +53,3 @@ extension UploadViewController: UIImagePickerControllerDelegate {
     }
 }
 
-extension UploadViewController: TOCropViewControllerDelegate {
-    
-}

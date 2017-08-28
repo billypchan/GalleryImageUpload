@@ -28,9 +28,21 @@ class GalleryImageUploadUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testCropToSquareAndRotateUIAction() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCUIApplication().navigationBars["GalleryImageUpload.GalleryView"].buttons["Add"].tap()
+        XCUIApplication().navigationBars["Moments"].buttons["Photos"].tap()
+        
+        let app = XCUIApplication()
+        app.collectionViews["PhotosGridView"].cells["Photo, Landscape, August 08, 2012, 8:52 PM"].tap()
+        
+        let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1)
+        element.children(matching: .button).element(boundBy: 3).tap()
+        app.sheets.buttons["Square"].tap()
+        element.children(matching: .button).element(boundBy: 1).tap()
+        app.buttons["Done"].tap()
+        
     }
     
 }

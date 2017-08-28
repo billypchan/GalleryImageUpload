@@ -14,4 +14,8 @@ protocol UploadViewOutput {
     */
 
     func viewIsReady()
+    
+    func cropImage(image: UIImage, parentView :UIViewController!)
+//    func uploadImage(image: UIImage)
+//    func cropImage(image: UIImage)
 }
