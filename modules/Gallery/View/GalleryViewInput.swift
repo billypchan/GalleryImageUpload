@@ -14,4 +14,12 @@ protocol GalleryViewInput: class {
     */
 
     func setupInitialState()
+    
+    // PRESENTER -> VIEW
+    func showError()
+    
+    func showLoading()
+    
+    func hideLoading()
+
 }

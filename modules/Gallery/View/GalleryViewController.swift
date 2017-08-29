@@ -8,8 +8,9 @@
 
 import UIKit
 import TOCropViewController
+import PKHUD
 
-class GalleryViewController: UICollectionViewController, GalleryViewInput, UINavigationControllerDelegate {
+class GalleryViewController: UICollectionViewController, UINavigationControllerDelegate {
 
     var output: GalleryViewOutput!
 
@@ -35,6 +36,22 @@ class GalleryViewController: UICollectionViewController, GalleryViewInput, UINav
     }
 }
 
+extension GalleryViewController: GalleryViewInput {
+    
+    func showError() {
+        HUD.flash(.label("Internet not connected"), delay: 2.0)
+    }
+    
+    func showLoading() {
+        HUD.show(.progress)
+    }
+    
+    func hideLoading() {
+        HUD.hide()
+    }
+    
+}
+
 extension GalleryViewController: UIImagePickerControllerDelegate {
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         var imageFromInfo = info[UIImagePickerControllerEditedImage]
@@ -49,8 +66,7 @@ extension GalleryViewController: UIImagePickerControllerDelegate {
             //otherwise dismiss, and then present from the main controller
 
             picker.dismiss(animated: true, completion: {() -> Void in
-                self.present(cropController, animated: true) { _ in
-                }
+                self.present(cropController, animated: true)
             })
         }
     }
@@ -63,5 +79,9 @@ extension GalleryViewController: UIImagePickerControllerDelegate {
 extension GalleryViewController: TOCropViewControllerDelegate {
     func cropViewController(_ cropViewController: TOCropViewController, didCropToImage image: UIImage, rect cropRect: CGRect, angle: Int) {
         
+        
+        output?.uploadImage(image: image)
+        
+        cropViewController.dismiss(animated: true, completion: nil)
     }
 }

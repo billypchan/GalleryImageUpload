@@ -2,26 +2,28 @@
 platform :ios, '10.0'
 
 target 'GalleryImageUpload' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for GalleryImageUpload
-
-  pod 'Firebase/Core'
-  pod 'Firebase/Database'
-
-  pod 'TOCropViewController'
-
-  pod 'SwiftyBeaver'
-
-  target 'GalleryImageUploadTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'GalleryImageUploadUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
+    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+    use_frameworks!
+    
+    # Pods for GalleryImageUpload
+    
+    pod 'Firebase/Core'
+    pod 'Firebase/Database'
+    pod 'Firebase/Storage'
+    
+    pod 'TOCropViewController'
+    pod 'PKHUD'
+    
+    pod 'SwiftyBeaver'
+    
+    target 'GalleryImageUploadTests' do
+        inherit! :search_paths
+        # Pods for testing
+    end
+    
+    target 'GalleryImageUploadUITests' do
+        inherit! :search_paths
+        # Pods for testing
+    end
+    
 end

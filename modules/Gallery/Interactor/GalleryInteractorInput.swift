@@ -9,5 +9,5 @@
 import Foundation
 
 protocol GalleryInteractorInput {
-
+    func uploadImage(image: UIImage)
 }

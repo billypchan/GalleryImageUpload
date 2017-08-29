@@ -9,5 +9,7 @@
 import Foundation
 
 protocol GalleryInteractorOutput: class {
-
+    // INTERACTOR -> PRESENTER
+    func didFinishUpload()
+    func onError()
 }
