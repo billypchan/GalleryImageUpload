@@ -12,6 +12,7 @@ class GalleryInteractor: GalleryInteractorInput {
     func uploadImage(image: UIImage) {
         // Get a reference to the storage service using the default Firebase App
         let storage = Storage.storage()
+        let database = Database.database()
         
         // Create a root reference
         let storageRef = storage.reference()
@@ -34,7 +35,12 @@ class GalleryInteractor: GalleryInteractorInput {
                     return
                 }
                 // Metadata contains file metadata such as size, content-type, and download URL.
-                let downloadURL = metadata.downloadURL
+                let downloadURL = metadata.downloadURL()?.absoluteString
+                
+                // Write the download URL to the Realtime Database
+                let dbRef = database.reference().child("imageFiles/myFiles")
+                dbRef.setValue(downloadURL)
+                
                 self.output?.didFinishUpload()
             }
             
