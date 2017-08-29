@@ -18,7 +18,4 @@ class GalleryPresenter: GalleryModuleInput, GalleryInteractorOutput {
 }
 
 extension GalleryPresenter :GalleryViewOutput {
-    func showUploadScreen() {
-        self.router?.presentSelectPhotoScreen(from: view!)
-    }
 }
