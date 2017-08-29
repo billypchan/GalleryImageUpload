@@ -33,6 +33,7 @@
 		E2209DFACBD8FB2B9E44A90B /* GalleryViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB1EB13E48D98776BB0438E /* GalleryViewInput.swift */; };
 		E4112783AAE98B44DA0F1347 /* Pods_GalleryImageUploadUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB8142B1A73280494DC5DC52 /* Pods_GalleryImageUploadUITests.framework */; };
 		FE3A574B1F56051C00CD22FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE3A574A1F56030600CD22FC /* GoogleService-Info.plist */; };
+		FE3A574D1F561EB000CD22FC /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3A574C1F561EB000CD22FC /* ImageCollectionViewCell.swift */; };
 		FEE3B9DF1F4F1C7A004512F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE3B9DE1F4F1C7A004512F3 /* AppDelegate.swift */; };
 		FEE3B9E41F4F1C7B004512F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEE3B9E21F4F1C7B004512F3 /* Main.storyboard */; };
 		FEE3B9E61F4F1C7B004512F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEE3B9E51F4F1C7B004512F3 /* Assets.xcassets */; };
@@ -89,6 +90,7 @@
 		ED02920E021503BA2BA82C02 /* GalleryInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryInteractor.swift; sourceTree = "<group>"; };
 		F36C67755E7EFAAC8F9352E7 /* Pods-GalleryImageUploadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GalleryImageUploadTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GalleryImageUploadTests/Pods-GalleryImageUploadTests.release.xcconfig"; sourceTree = "<group>"; };
 		FE3A574A1F56030600CD22FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FE3A574C1F561EB000CD22FC /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		FEDE3FDC1F4F9112009AFC93 /* GalleryImageUpload-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GalleryImageUpload-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		FEE3B9DB1F4F1C7A004512F3 /* GalleryImageUpload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalleryImageUpload.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE3B9DE1F4F1C7A004512F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				ABB1EB13E48D98776BB0438E /* GalleryViewInput.swift */,
 				D2B41F02451A8CA6EEC50D9E /* GalleryViewOutput.swift */,
 				8F4828629F3A43CB7EC07FFB /* GalleryViewController.swift */,
+				FE3A574C1F561EB000CD22FC /* ImageCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${BUILT_PRODUCTS_DIR}/TOCropViewController/TOCropViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -675,6 +679,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TOCropViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -720,6 +725,7 @@
 				39170712FBC785D55C4DA1E3 /* GalleryInteractorOutput.swift in Sources */,
 				B70DE5C4B3BA81B6BF20D29D /* GalleryInteractor.swift in Sources */,
 				8BD3CE732E463431D81776D7 /* GalleryRouterInput.swift in Sources */,
+				FE3A574D1F561EB000CD22FC /* ImageCollectionViewCell.swift in Sources */,
 				9258598DA3FD9BF14DCCBB62 /* GalleryRouter.swift in Sources */,
 				49873DF612087B004E34274C /* GalleryConfigurator.swift in Sources */,
 				327335DAD999AFF4389FD568 /* GalleryInitializer.swift in Sources */,

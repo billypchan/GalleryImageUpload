@@ -11,8 +11,11 @@ target 'GalleryImageUpload' do
     pod 'Firebase/Database'
     pod 'Firebase/Storage'
     
+    pod 'FirebaseUI/Storage'
+    
     pod 'TOCropViewController'
     pod 'PKHUD'
+    pod 'SDWebImage', '~> 4.0'
     
     pod 'SwiftyBeaver'
     
