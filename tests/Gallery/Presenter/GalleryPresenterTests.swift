@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import GalleryImageUpload
 
 class GalleryPresenterTest: XCTestCase {
 
@@ -21,14 +22,46 @@ class GalleryPresenterTest: XCTestCase {
     }
 
     class MockInteractor: GalleryInteractorInput {
+        func uploadImage(image: UIImage) {
+            
+        }
+        
+        func retrieveImageURLs() {
+            
+        }
+        
 
     }
 
     class MockRouter: GalleryRouterInput {
+        static func createGalleryModule() -> UIViewController {
+            return UIViewController()
+        }
+        
 
     }
 
     class MockViewController: GalleryViewInput {
+        func showImageURLs(imageURLs: [URL]) {
+            
+        }
+        
+        func showImageURLAdded(url: URL) {
+            
+        }
+        
+        func showLoading() {
+            
+        }
+        
+        func hideLoading() {
+            
+        }
+        
+        func showError() {
+            
+        }
+        
 
         func setupInitialState() {
 

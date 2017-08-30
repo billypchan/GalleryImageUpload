@@ -17,11 +17,10 @@ target 'GalleryImageUpload' do
     pod 'PKHUD'
     pod 'SDWebImage', '~> 4.0'
     
-    pod 'SwiftyBeaver'
-    
     target 'GalleryImageUploadTests' do
         inherit! :search_paths
         # Pods for testing
+        pod 'Firebase'
     end
     
     target 'GalleryImageUploadUITests' do

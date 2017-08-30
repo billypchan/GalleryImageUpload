@@ -9,7 +9,7 @@
 import XCTest
 
 class GalleryImageUploadUITests: XCTestCase {
-        
+    
     override func setUp() {
         super.setUp()
         
@@ -19,7 +19,7 @@ class GalleryImageUploadUITests: XCTestCase {
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         XCUIApplication().launch()
-
+        
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
@@ -28,9 +28,45 @@ class GalleryImageUploadUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testUploadPhoto_expectNumberOfCellIncrease() {
+        let firstCell = XCUIApplication().cells.element(boundBy: 0)
+        
+        if firstCell.waitForExistence(timeout: 10) {
+            
+            let originalCount = XCUIApplication().cells.count
+            
+            let app = XCUIApplication()
+            app.navigationBars["Gallery"].buttons["Add"].tap()
+            app.sheets.buttons["Choose from Photos"].tap()
+            
+            /**tap the second cell "Camera Roll" */
+            let albumTable = XCUIApplication().tables.element(boundBy: 0)
+            if albumTable.waitForExistence(timeout: 10) {
+                app.tables.element(boundBy: 0).cells.element(boundBy: 1).tap()
+                app.collectionViews["PhotosGridView"].cells.element(boundBy: 0).tap()
+                app.buttons["Done"].tap()
+                
+                
+                /** wait for spinner dismiss */
+                let collectionView = XCUIApplication().collectionViews.element(boundBy: 0)
+                let predicate = NSPredicate(format: "hittable == 1")
+                
+                expectation(for: predicate, evaluatedWith: collectionView, handler: nil)
+                waitForExpectations(timeout: 10, handler: nil)
+                
+                /** expect number of cells increased */
+                let newCount = XCUIApplication().cells.count
+                
+                XCTAssert(newCount > originalCount, "number of cells increased")
+            }
+            else {
+                XCTAssert(false, "fail to show photo picker")
+            }
+            
+        }
+        else {
+            XCTAssert(false, "fail to find the table cell")
+        }
     }
     
 }

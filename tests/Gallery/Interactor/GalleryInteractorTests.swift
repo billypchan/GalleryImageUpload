@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import GalleryImageUpload
 
 class GalleryInteractorTests: XCTestCase {
 
@@ -21,6 +22,22 @@ class GalleryInteractorTests: XCTestCase {
     }
 
     class MockPresenter: GalleryInteractorOutput {
+        func didRetrieveImageURLs(_ imageURLs: [URL]) {
+            
+        }
+        
+        func didRetrieveImageURL(_ imageURLs: URL) {
+            
+        }
+        
+        func didFinishUpload() {
+            
+        }
+        
+        func onError() {
+            
+        }
+        
 
     }
 }

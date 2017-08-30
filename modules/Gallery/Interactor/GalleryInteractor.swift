@@ -43,7 +43,7 @@ class GalleryInteractor: GalleryInteractorInput {
             let riversRef = storageRef.child("images/\(uuid).jpg")
             
             // Upload the file to the path "images/rivers.jpg"
-            let uploadTask = riversRef.putData(data, metadata: nil) { (metadata, error) in
+            _ = riversRef.putData(data, metadata: nil) { (metadata, error) in
                 guard let metadata = metadata else {
                     // Uh-oh, an error occurred!
                     self.output?.onError()
