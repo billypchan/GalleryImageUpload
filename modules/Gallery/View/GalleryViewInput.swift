@@ -14,4 +14,12 @@ protocol GalleryViewInput: class {
     */
 
     func setupInitialState()
+    
+    // PRESENTER -> VIEW
+    func showImageURLs(imageURLs :[URL])
+    func showImageURLAdded(url :URL)
+
+    func showLoading()
+    func hideLoading()
+    func showError()
 }

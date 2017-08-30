@@ -9,5 +9,11 @@
 import Foundation
 
 protocol GalleryInteractorOutput: class {
+    // INTERACTOR -> PRESENTER
+    func didRetrieveImageURLs(_ imageURLs: [URL])
+    func didRetrieveImageURL(_ imageURLs: URL)
 
+    func didFinishUpload()
+    
+    func onError()
 }

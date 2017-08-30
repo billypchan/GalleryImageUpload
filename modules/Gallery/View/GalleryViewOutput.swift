@@ -16,5 +16,5 @@ protocol GalleryViewOutput {
     func viewIsReady()
     
     // VIEW -> PRESENTER
-    func showUploadScreen()
+    func uploadImage(image : UIImage)
 }

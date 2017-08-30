@@ -9,25 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GalleryImageUpload" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-161" y="-348"/>
-        </scene>
-        <!--Gallery View Controller-->
+        <!--Gallery-->
         <scene sceneID="ySe-Ti-8JG">
             <objects>
                 <collectionViewController id="hWe-ia-Q8I" customClass="GalleryViewController" customModule="GalleryImageUpload" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,19 +18,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pUt-NE-6es">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="100" height="100"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qMq-I9-B0d">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="qMq-I9-B0d" customClass="ImageCollectionViewCell" customModule="GalleryImageUpload" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aVK-B4-34q">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="aVK-B4-34q" secondAttribute="trailing" id="1br-eJ-J9G"/>
+                                    <constraint firstItem="aVK-B4-34q" firstAttribute="top" secondItem="qMq-I9-B0d" secondAttribute="top" id="NdK-TA-WTs"/>
+                                    <constraint firstItem="aVK-B4-34q" firstAttribute="leading" secondItem="qMq-I9-B0d" secondAttribute="leading" id="hvu-4u-oTn"/>
+                                    <constraint firstAttribute="bottom" secondItem="aVK-B4-34q" secondAttribute="bottom" id="mJ3-ZS-a6w"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="aVK-B4-34q" id="HDR-xg-Ge5"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -56,7 +52,7 @@
                             <outlet property="delegate" destination="hWe-ia-Q8I" id="MPO-47-Qz2"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="Fx2-WZ-ucG">
+                    <navigationItem key="navigationItem" title="Gallery" id="Fx2-WZ-ucG">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GWB-i0-J1k">
                             <connections>
                                 <action selector="uploadPhotoButtonTapped:" destination="hWe-ia-Q8I" id="uyA-eL-mnv"/>

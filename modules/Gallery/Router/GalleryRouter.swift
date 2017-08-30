@@ -11,15 +11,6 @@ import UIKit
 class GalleryRouter: GalleryRouterInput {
     weak var parentView :UIViewController!
     
-    func presentSelectPhotoScreen(from view: GalleryViewInput) {
-        
-        if let sourceView = view as? UIViewController, let parentView = sourceView.navigationController {            
-            
-            let photoUploadViewController =  PhotoUploadRouter.createPhotoUploadModule(parentView: parentView)
-            photoUploadViewController.display(parentView: parentView)
-        }
-    }
-    
     class func createGalleryModule() -> UIViewController {
         let navController = mainStoryboard.instantiateViewController(withIdentifier: "GallerysNavigationController")
         if let view = navController.childViewControllers.first as? GalleryViewController {

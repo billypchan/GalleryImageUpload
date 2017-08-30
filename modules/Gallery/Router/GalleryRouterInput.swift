@@ -10,8 +10,5 @@ import Foundation
 import UIKit
 
 protocol GalleryRouterInput {    
-    static func createGalleryModule() -> UIViewController
-    
-    // PRESENTER -> WIREFRAME
-    func presentSelectPhotoScreen(from view: GalleryViewInput)
+    static func createGalleryModule() -> UIViewController    
 }
