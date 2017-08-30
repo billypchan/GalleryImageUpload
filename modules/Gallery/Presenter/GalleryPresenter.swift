@@ -29,11 +29,8 @@ extension GalleryPresenter: GalleryInteractorOutput {
         view?.showImageURLAdded(url: url)
     }
     
-    ///FIXME: retrieved, added
-    
     func didFinishUpload() {
         view?.hideLoading()
-        ///FIXME: refresh images
     }
 
     func onError() {

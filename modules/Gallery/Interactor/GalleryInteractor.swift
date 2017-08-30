@@ -39,7 +39,6 @@ class GalleryInteractor: GalleryInteractorInput {
         if let data = UIImageJPEGRepresentation(image, 0.7) {
             
             // Create a reference to the file you want to upload
-            ///FIXME: UUID file name
             let uuid = UUID().uuidString
             let riversRef = storageRef.child("images/\(uuid).jpg")
             

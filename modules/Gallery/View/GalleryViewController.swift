@@ -28,7 +28,39 @@ class GalleryViewController: UICollectionViewController, UINavigationControllerD
     }
     
     @IBAction func uploadPhotoButtonTapped(_ sender: Any) {
-        //        output?.showUploadScreen()
+        ///FIXME: menu for get image from camera
+
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let imagePickerAction = UIAlertAction(title: "Choose from Photos", style: .default, handler: {(_ action: UIAlertAction) -> Void in
+            self.showImagePicker()
+        })
+        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {(_ action: UIAlertAction) -> Void in
+            self.showCamera()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+            
+        })
+
+        alertController.addAction(imagePickerAction)
+        alertController.addAction(cameraAction)
+        alertController.addAction(cancelAction)
+
+        alertController.modalPresentationStyle = .popover
+        let popPresenter: UIPopoverPresentationController? = alertController.popoverPresentationController
+        popPresenter?.barButtonItem = self.navigationController?.navigationItem.leftBarButtonItem
+        present(alertController, animated: true)
+    }
+
+    func showCamera() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .camera
+        imagePicker.allowsEditing = false
+        imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        
+        self.present(imagePicker, animated: true)
+    }
+
+    func showImagePicker() {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = false
@@ -45,9 +77,8 @@ extension GalleryViewController: GalleryViewInput {
     }
     
     func showImageURLAdded(url: URL) {
-        ///FIXME: insert
         if !self.imageURLs.contains(url) {
-            self.imageURLs.insert(url, at: 0)
+            self.imageURLs.insert(url, at: self.imageURLs.count)
             collectionView?.reloadData()
         }
     }
@@ -63,7 +94,6 @@ extension GalleryViewController: GalleryViewInput {
     func hideLoading() {
         HUD.hide()
     }
-    
 }
 
 extension GalleryViewController: UIImagePickerControllerDelegate {
