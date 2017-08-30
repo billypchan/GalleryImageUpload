@@ -31,10 +31,12 @@ class GalleryImageUploadUITests: XCTestCase {
     func testUploadPhoto_expectNumberOfCellIncrease() {
         let firstCell = XCUIApplication().cells.element(boundBy: 0)
         
+        var originalCount = 0
         if firstCell.waitForExistence(timeout: 10) {
-            
-            let originalCount = XCUIApplication().cells.count
-            
+            originalCount = Int(XCUIApplication().cells.count)
+        }
+        
+        
             let app = XCUIApplication()
             app.navigationBars["Gallery"].buttons["Add"].tap()
             app.sheets.buttons["Choose from Photos"].tap()
@@ -64,9 +66,6 @@ class GalleryImageUploadUITests: XCTestCase {
             }
             
         }
-        else {
-            XCTAssert(false, "fail to find the table cell")
-        }
-    }
+    
     
 }

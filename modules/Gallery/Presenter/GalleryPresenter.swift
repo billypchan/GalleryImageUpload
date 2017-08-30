@@ -13,7 +13,6 @@ class GalleryPresenter: GalleryModuleInput {
     var router: GalleryRouterInput!
 
     func viewIsReady() {
-        view.showLoading()
         interactor?.retrieveImageURLs()
     }
 }
