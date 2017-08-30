@@ -9,6 +9,22 @@
 import Firebase
 
 class GalleryInteractor: GalleryInteractorInput {
+    
+    weak var output: GalleryInteractorOutput!
+    
+    func retrieveImageURLs() {
+        let database = Database.database()
+        
+        let dbRef = database.reference().child("imageFiles/myFiles")
+        dbRef.observe(.childAdded, with: { (snapshot) in
+            // Get download URL from snapshot
+            let downloadURL = snapshot.value as! String
+            if let url = URL(string: downloadURL) {
+                self.output.didRetrieveImageURL(url)
+            }
+        })
+    }
+    
     func uploadImage(image: UIImage) {
         // Get a reference to the storage service using the default Firebase App
         let storage = Storage.storage()
@@ -38,7 +54,7 @@ class GalleryInteractor: GalleryInteractorInput {
                 let downloadURL = metadata.downloadURL()?.absoluteString
                 
                 // Write the download URL to the Realtime Database
-                let dbRef = database.reference().child("imageFiles/myFiles")
+                let dbRef = database.reference().child("imageFiles/myFiles/\(uuid)")
                 dbRef.setValue(downloadURL)
                 
                 self.output?.didFinishUpload()
@@ -46,8 +62,4 @@ class GalleryInteractor: GalleryInteractorInput {
             
         }
     }
-    
-    
-    weak var output: GalleryInteractorOutput!
-    
 }

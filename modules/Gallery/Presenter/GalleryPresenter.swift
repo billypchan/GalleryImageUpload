@@ -13,11 +13,24 @@ class GalleryPresenter: GalleryModuleInput {
     var router: GalleryRouterInput!
 
     func viewIsReady() {
-
+        view.showLoading()
+        interactor?.retrieveImageURLs()
     }
 }
 
 extension GalleryPresenter: GalleryInteractorOutput {
+    func didRetrieveImageURLs(_ imageURLs: [URL]) {
+        view?.hideLoading()
+        view?.showImageURLs(imageURLs: imageURLs)
+    }
+    
+    func didRetrieveImageURL(_ url: URL) {
+        view?.hideLoading()
+        view?.showImageURLAdded(url: url)
+    }
+    
+    ///FIXME: retrieved, added
+    
     func didFinishUpload() {
         view?.hideLoading()
         ///FIXME: refresh images

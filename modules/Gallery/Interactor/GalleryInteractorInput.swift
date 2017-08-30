@@ -10,4 +10,5 @@ import Foundation
 
 protocol GalleryInteractorInput {
     func uploadImage(image: UIImage)
+    func retrieveImageURLs()
 }
